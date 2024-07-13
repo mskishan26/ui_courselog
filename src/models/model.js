@@ -48,7 +48,7 @@ module.exports = (sequelize) => {
       type: DataTypes.DATEONLY,
       primaryKey: true,
     },
-    pre_classtype: class_type, // Replace with actual enum values
+    pre_classtype: class_type, 
     pre_chapter: DataTypes.STRING(200),
     pre_links: DataTypes.STRING(200),
     pre_plan: DataTypes.STRING(2000),
@@ -104,7 +104,11 @@ module.exports = (sequelize) => {
     vol_name: DataTypes.STRING(100),
     centre_id: DataTypes.STRING(40),
     class_id: DataTypes.STRING(40),
-    role: role_type, // Replace with actual enum values
+    role: role_type, 
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   }, {
     tableName: 'volunteer',
     timestamps: false,
