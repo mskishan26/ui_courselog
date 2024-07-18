@@ -10,3 +10,15 @@ node_modules/
 # OS generated files
 .DS_Store
 Thumbs.db
+
+#ignore these
+config.js
+config/
+conn_test.js
+dotenv_test.js
+final1ddl.sql
+initialChecks.test.js
+model.js
+package-lock.json
+pg_conn_test.js
+server.js

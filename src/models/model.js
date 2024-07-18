@@ -1,4 +1,5 @@
 const { DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
 
 const day_type = DataTypes.ENUM('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
 const class_type = DataTypes.ENUM('Tuitions', 'Life skills', 'Others');
@@ -112,7 +113,17 @@ module.exports = (sequelize) => {
   }, {
     tableName: 'volunteer',
     timestamps: false,
-  });
+  hooks: {
+    beforeCreate: async (volunteer) => {
+      const salt = await bcrypt.genSalt(10);
+      volunteer.password = await bcrypt.hash(volunteer.password, salt);
+    },
+  },
+});
+
+Volunteer.prototype.validPassword = async function(password) {
+  return await bcrypt.compare(password, this.password);
+};
   
   // Associations
   Center.hasMany(Classes, { foreignKey: 'center_id' });

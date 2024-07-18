@@ -1,9 +1,10 @@
 {
   "name": "ui_log",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
