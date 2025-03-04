@@ -1,0 +1,23 @@
+# Environment variables
+.env
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore everything in the backend folder
+backend/*
+src/*
+package.json
+
+# Except the src folder and specific files
+!backend/src/
+!backend/.sequelizerc
+!backend/package.json
+!backend/package-lock.json
